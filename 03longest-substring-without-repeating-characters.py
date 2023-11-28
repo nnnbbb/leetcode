@@ -25,22 +25,20 @@ class Solution:
         :type s: str
         :rtype: int
         """
-        st = {}
-        i, ans = 0, 0
-        for j in range(len(s)):
-            if s[j] in st:
-                # 如果字符串已经存在st字典里, 取出到这个字符串长度和 i 取最大值, i所代表的含义是从i开始算子字符串长度
-                i = max(st[s[j]], i)
-                # i = st[s[j]]
-                print("s[j]", s[j])
-                print("i", i)
-            ans = max(ans, j - i + 1)
+        map = {}
+        start, answer = 0, 0
+        for end in range(len(s)):
+            char = s[end]
+            if char in map:
+                start = max(start, map[char] + 1)
+            # 比较之前的子串长度, 和当前的子串长度
+            answer = max(answer, end - start + 1)
             # k是字符串, v是长度
-            st[s[j]] = j + 1
-        return ans
+            map[char] = end
+        return answer
 
 
-s = "abba"
+s = "pwwkew"
 S = Solution()
 result = S.lengthOfLongestSubstring(s)
 print("result", result)
