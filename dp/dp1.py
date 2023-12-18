@@ -22,10 +22,10 @@ print('rec_opt r ->', r)
 
 
 def dp_opt(arr):
-    opt = np.zeros(len(arr))
+    opt = np.zeros(len(arr), dtype=int)
     opt[0] = arr[0]
     opt[1] = max(arr[0], arr[1])
-    
+
     for i in range(2, len(arr)):
         A = opt[i-2] + arr[i]
         B = opt[i-1]
