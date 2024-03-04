@@ -42,26 +42,19 @@ class Solution:
         return True
 
 
-# class Solution:
-#     def isAnagram(self, s: str, t: str) -> bool:
-#         if len(s) != len(t):
-#             return False
-
-#         o1 = {}
-#         for i in s:
-#             if i in o1:
-#                 o1[i] = o1[i]+1
-#             else:
-#                 o1[i] = 1
-#         for j in t:
-#             if j not in o1:
-#                 return False
-#             o1[j] -= 1
-#             if o1[j] == 0:
-#                 del o1[j]
-#         # 如果 为空则 s 和 t相等
-#         if bool(o1) == False:
-#             return True
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        dic = defaultdict(int)
+        for c in s:
+            dic[c] += 1
+        for c in t:
+            dic[c] -= 1
+        for val in dic.values():
+            if val != 0:
+                return False
+        return True
 
 
 # @lc code=end

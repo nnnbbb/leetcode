@@ -25,7 +25,7 @@
 //   }
 //   let set = new Set()
 //   grid.map((v, i) => set.add(parent(p, i)))
-  
+
 //   let res = Array.from(set).length
 //   return res
 // };
@@ -121,10 +121,48 @@ var numIslands = function (grid) {
   return uf.getCount()  //返回并查集的个数减一就行
 };
 
+var numIslands = function (grid) {
+  let g = grid
+  let dx = [1, -1, 0, 0]
+  let dy = [0, 0, 1, -1]
+  let result = 0
+  var sink = function (i, j) {
+    if (g[i][j] == "0") {
+      return
+    }
+    g[i][j] = '0'
 
+    for (let k = 0; k < dx.length; k++) {
+      let x = j + dx[k]
+      let y = i + dy[k]
+      if (y >= 0 && y < g.length && x >= 0 && x < g[i].length) {
+        sink(y, x)
+      }
+    }
+    return 1
+  }
+
+  for (let i = 0; i < g.length; i++) {
+    for (let j = 0; j < g[i].length; j++) {
+
+      if (g[i][j] === '0') {
+        continue
+      }
+      result += sink(i, j)
+    }
+
+  }
+  return result
+}
 // let g1 = [
 //   ["1", "0", "1", "1", "0", "1", "1"]]
-// let r = numIslands(g1)
+// let g2 = [
+//   ["1", "1", "1", "1", "0"],
+//   ["1", "1", "0", "1", "0"],
+//   ["1", "1", "0", "0", "0"],
+//   ["0", "0", "0", "0", "0"]
+// ]
+// let r = numIslands(g2)
 // console.log('r ->', r)
 // @lc code=end
 

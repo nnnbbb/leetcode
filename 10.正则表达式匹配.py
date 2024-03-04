@@ -20,13 +20,13 @@ class Solution:
             if j == len(pattern):
                 return i == len(text)
 
-            first = i < len(text) and pattern[j]in {text[i], '.'}
+            first = i < len(text) and pattern[j] in {text[i], '.'}
 
-            if j <= len(pattern)-2 and pattern[j+1] == '*':
-                ans = dp(i, j+2) or first and dp(i+1, j)
+            if j <= len(pattern) - 2 and pattern[j + 1] == '*':
+                ans = dp(i, j + 2) or first and dp(i + 1, j)
 
             else:
-                ans = first and dp(i+1, j+1)
+                ans = first and dp(i + 1, j + 1)
 
             memo[(i, j)] = ans
             return ans
@@ -34,7 +34,7 @@ class Solution:
 
 
 class Solution:
-    
+
     @functools.lru_cache()
     def isMatch(self, text: str, pattern: str) -> bool:
         if not pattern:

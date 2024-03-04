@@ -12,6 +12,7 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
+        # 非0元素的位置在什么地方, j 始终记录下一个非0元素要放的位置
         j = 0
         for i in range(len(nums)):
             if nums[i] != 0:

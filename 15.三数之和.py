@@ -28,17 +28,22 @@ class Solution:
         nums.sort()
         res, k = [], 0
         for k in range(len(nums) - 2):
+            # 1. because of nums[j] > nums[i] > nums[k]. 
+            # 如果 nums[k] > 0 那么 nums[j] 和 nums[i] 也大于0, 无法满足nums[j] + nums[i] + nums[k] = 0
             if nums[k] > 0:
-                break  # 1. because of j > i > k.
+                break
             if k > 0 and nums[k] == nums[k - 1]:
                 continue  # 2. skip the same `nums[k]`.
             i, j = k + 1, len(nums) - 1
             while i < j:  # 3. double pointer
                 s = nums[k] + nums[i] + nums[j]
+                # 偏小 i++
                 if s < 0:
                     i += 1
+                    # skip the same
                     while i < j and nums[i] == nums[i - 1]:
                         i += 1
+                # 偏大 j--
                 elif s > 0:
                     j -= 1
                     while i < j and nums[j] == nums[j + 1]:

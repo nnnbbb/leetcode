@@ -10,7 +10,7 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         dic = {"{": "}", "[": "]", "(": ")", "?": "?"}
-        stack = ["?"]
+        stack = ["?"]  # stack为空时pop会报错, 所以一开始添加一个 ? 元素
         for c in s:
             if c in dic:
                 stack.append(c)
@@ -18,6 +18,10 @@ class Solution:
                 return False
         return len(stack) == 1
 
+
+# s = Solution()
+# r = s.isValid("]")
+# print(r)
 
 class Solution:
     def isValid(self, s: str) -> bool:

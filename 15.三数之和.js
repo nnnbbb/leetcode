@@ -22,5 +22,126 @@ var threeSum = function (nums) {
   }
   return res
 }
+var threeSum = function (nums) {
+  nums = nums.sort((a, b) => a - b);
+  let res = []
+  for (let k = 0; k < nums.length - 2; k++) { // 为什么 nums.length - 2
+    if (nums[k] > 0) {
+      break
+    }
+    if (k > 0 && nums[k] === nums[k - 1]) {
+      continue
+    }
+    let i = k + 1
+    let j = nums.length - 1
+    while (i < j) {
+
+      let s = nums[i] + nums[j] + nums[k]
+      if (s < 0) {
+        i++
+        while (nums[i] === nums[i - 1]) {
+          i++
+        }
+      } else if (s > 0) {
+        j--
+        while (nums[j] === nums[j + 1]) {
+          j--
+        }
+      } else {
+        res.push([nums[k], nums[i], nums[j]])
+        i++
+        j--
+        while (nums[i] === nums[i - 1]) {
+          i++
+        }
+        while (nums[j] === nums[j + 1]) {
+          j--
+        }
+      }
+    }
+  }
+  return res
+}
+
+var threeSum = function (nums) {
+  nums = nums.sort((a, b) => a - b)
+  let res = []
+  for (let k = 0; k < nums.length - 2; k++) {
+    if (nums[k] > 0) {
+      break
+    }
+    if (nums[k] === nums[k - 1]) {
+      continue
+    }
+    let i = k + 1
+    let j = nums.length - 1
+    while (i < j) {
+      let s = nums[i] + nums[j] + nums[k]
+      if (s < 0) {
+        i++
+        while (nums[i] === nums[i - 1]) {
+          i++
+        }
+      } else if (s > 0) {
+        j--
+        while (nums[j] === nums[j + 1]) {
+          j--
+        }
+      } else {
+        res.push([nums[k], nums[i], nums[j]])
+        i++
+        j--
+        while (nums[i] === nums[i - 1]) {
+          i++
+        }
+        while (nums[j] === nums[j + 1]) {
+          j--
+        }
+      }
+    }
+
+  }
+  return res
+}
+var threeSum = function (nums) {
+  nums = nums.sort((a, b) => a - b)
+  res = []
+  for (let k = 0; k < nums.length - 2; k++) {
+    if (nums[k] > 0) {
+      break
+    }
+    if (nums[k] === nums[k - 1]) {
+      continue
+    }
+    let i = k + 1
+    let j = nums.length - 1
+    while (i < j) {
+      let s = nums[k] + nums[i] + nums[j]
+      if (s < 0) {
+        i++
+        while (nums[i] === nums[i - 1]) {
+          i++
+        }
+      } else if (s > 0) {
+        j--
+        while (nums[j] === nums[j + 1]) {
+          j--
+        }
+      } else {
+        res.push([nums[k], nums[i], nums[j]])
+        i++
+        j--
+        while (nums[i] === nums[i - 1]) {
+          i++
+        }
+        while (nums[j] === nums[j + 1]) {
+          j--
+        }
+      }
+    }
+
+  }
+  return res
+}
 // @lc code=end
 
