@@ -1,0 +1,20 @@
+{
+  "name": "leetcode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nnnbbb/leetcode.git"
+  },
+  "author": "yanxl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nnnbbb/leetcode/issues"
+  },
+  "homepage": "https://github.com/nnnbbb/leetcode#readme",
+  "dependencies": {
+    "@datastructures-js/priority-queue": "^5.4.0"
+  }
+}
