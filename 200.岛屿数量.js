@@ -128,7 +128,7 @@ var numIslands = function (grid) {
   let result = 0
   var sink = function (i, j) {
     if (g[i][j] == "0") {
-      return
+      return 0
     }
     g[i][j] = '0'
 

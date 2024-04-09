@@ -45,7 +45,37 @@ var solveNQueens = function (n) {
     }
     res.push(a)
   }
+  let r = result.map(res =>
+    res.map(
+      i => ".".repeat(i) + "Q" + ".".repeat(n - i - 1)
+    ))
   return res
 };
+
+var solveNQueens = function (n) {
+  let result = []
+  /**
+   * @param {number[]} queens 
+   * @param {number[]} xyDiff 
+   * @param {number[]} xySum 
+   */
+  var DFS = function (queens, xyDiff, xySum) {
+    let row = queens.length
+    if (row >= n) {
+      result.push(queens)
+      return
+    }
+    for (let col = 0; col < n; col++) {
+      if (!queens.includes(col) && !xyDiff.includes(row - col) && !xySum.includes(row + col)) {
+        DFS(queens.concat(col), xyDiff.concat(row - col), xySum.concat(row + col))
+      }
+
+    }
+  }
+  DFS([], [], [])
+  return result.map(res =>
+    res.map(i => '.'.repeat(i) + 'Q' + '.'.repeat(n - i - 1))
+  )
+}
 // @lc code=end
 

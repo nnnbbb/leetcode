@@ -54,14 +54,33 @@ class Solution:
         result = []
         def DFS(queens, xy_dif, xy_sum):
 
-            p = len(queens)
-            if p == n:
+            row = len(queens)
+            if row == n:
                 result.append(queens)
-            for q in range(n):
-                if q not in queens and p-q not in xy_dif and p+q not in xy_sum:
-                    DFS(queens+[q], xy_dif+[p-q], xy_sum+[p+q])
+            for col in range(n):
+                if col not in queens and row-col not in xy_dif and row+col not in xy_sum:
+                    DFS(queens+[col], xy_dif+[row-col], xy_sum+[row+col])
         DFS([], [], [])
         return [["."*i+"Q"+"."*(n-i-1) for i in sol] for sol in result], result
+
+
+class Solution:
+    result = []
+    n = 0
+
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        self.n = n
+        self.DFS([], [], [])
+        return [["." * i + "Q" + "." * (n-i-1) for i in sol] for sol in self.result]
+
+    def DFS(self, queens, xy_dif, xy_sum):
+        row = len(queens)
+        if row == self.n:
+            self.result.append(queens)
+
+        for col in range(self.n):
+            if col not in queens and row-col not in xy_dif and row+col not in xy_sum:
+                self.DFS(queens + [col], xy_dif + [row-col], xy_sum + [row+col])
 
 
 s = Solution()

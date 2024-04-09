@@ -39,7 +39,7 @@ class Solution:
 
 
 s = Solution()
-r = s.myPow(2,10)
+r = s.myPow(2, 10)
 print('r ->', r)
 
 

@@ -12,11 +12,19 @@
 var subsets = function (nums) {
   let res = [[]]
   for (const n of nums) {
-    
+
     for (const num of res) {
       res = res.concat([num.concat([n])])
     }
   }
+  return res
+};
+var subsets = function (nums) {
+  let res = [[]]
+
+  nums.map(n => res.map(num => {
+    res = res.concat([num.concat([n])])
+  }))
   return res
 };
 // @lc code=end
