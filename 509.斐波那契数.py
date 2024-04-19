@@ -20,4 +20,11 @@ class Solution:
             # 数字太大会溢出 所以 mod 1000000007
             return self.fib_iter(b % 1000000007, a+b, count)
 
+
+class Solution:
+    def fib(self, n):
+        a, b = 0, 1
+        for _ in range(n):
+            a, b = b, a + b
+        return a
 # @lc code=end

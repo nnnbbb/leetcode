@@ -43,4 +43,6 @@ class Solution:
 
 s = Solution()
 s.ladderLength("hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"])
+s.ladderLength("hot", "dog", ["hot", "dog"])
+
 # @lc code=end
