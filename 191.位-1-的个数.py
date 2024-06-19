@@ -25,4 +25,8 @@ class Solution:
             n &= (n-1)
         return count
 
+
+s = Solution()
+s.hammingWeight(128)
+
 # @lc code=end

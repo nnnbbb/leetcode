@@ -55,6 +55,18 @@ class Solution:
         board[i][j] = tmp
 
 
+s = Solution()
+r = s.findWords([
+    ["o", "a", "a", "n"],
+    ["e", "t", "a", "e"],
+    ["i", "h", "k", "r"],
+    ["i", "f", "l", "v"],
+],
+
+    ["oath", "pea", "eat", "rain"])
+print(r)
+
+
 class Solution:
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
         trie = {}  # 构造字典树

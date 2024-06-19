@@ -47,7 +47,7 @@ class Solution:
             # aab
             # c*a*b
 
-            # 匹配上的情况 跳过 text 弟一个字符, pattern 不变
+            # 匹配上的情况 跳过 text 第一个字符, pattern 不变
             # aaa
             # a*
             return self.isMatch(text, pattern[2:]) \

@@ -25,6 +25,7 @@ class Solution:
 
         self.merge_sort(nums, left, mid)
         self.merge_sort(nums, mid+1, right)
+        print('nums ->', nums)
         count = 0
         l = left
         r = mid + 1
@@ -36,8 +37,14 @@ class Solution:
             else:
                 r += 1
                 count += 1
-        
+
         nums[left:right+1] = sorted(nums[left:right+1])
+
+
+a = [3,  2, 4, 1]
+s = Solution()
+r = s.reversePairs(a)
+print('r ->', r)
 
 
 class Solution:
@@ -70,8 +77,4 @@ class Solution:
         return count
 
 
-a = [3, 4, 2, 1]
-s = Solution()
-r = s.reversePairs(a)
-print('r ->', r)
 # @lc code=end

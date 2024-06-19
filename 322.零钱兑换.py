@@ -18,16 +18,15 @@ class Solution:
         # 比如 dp[11]就是换11块钱需要的硬币数量
         dp = [0] + [MAX] * amount
 
-        for i in range(1, amount+1):
-            for j in range(len(coins)):
-                if i >= coins[j]:
-                    coin_number = dp[i - coins[j]] + 1
-                    dp[i] = min(dp[i], coin_number)
+        for i in range(1, amount + 1):
+            for coin in coins:
+                if i >= coin:
+                    dp[i] = min(dp[i], dp[i - coin] + 1)
 
         if dp[amount] > amount:
             return -1
         else:
-            print('dp[amount] ->', dp[amount])
+            print('dp[amount] ->', dp)
             return dp[amount]
 
 

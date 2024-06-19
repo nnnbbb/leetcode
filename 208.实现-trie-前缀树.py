@@ -16,7 +16,12 @@ class Trie:
     def insert(self, word: str) -> None:
         node = self.root
         for char in word:
-            node = node.setdefault(char, {})
+            # node = node.setdefault(char, {})
+            
+            if char not in node:
+                node[char] = {}
+            node = node[char]
+            
         node[self.end_of_word] = self.end_of_word
 
     def search(self, word: str) -> bool:
@@ -38,13 +43,15 @@ class Trie:
 
 trie = Trie()
 trie.insert("apple")
-print('trie.search("apple") ->', trie.search("apple"))
-print('trie.search("app") ->', trie.search("app"))
-print('trie.startsWith("app") ->', trie.startsWith("ap"))
-trie.insert("app")
-trie.insert("code")
-print('trie.search("app") ->', trie.search("app"))
+trie.insert("aaple")
 print('trie ->', trie.root)
+# print('trie.search("apple") ->', trie.search("apple"))
+# print('trie.search("app") ->', trie.search("app"))
+# print('trie.startsWith("app") ->', trie.startsWith("ap"))
+# trie.insert("app")
+# trie.insert("code")
+# print('trie.search("app") ->', trie.search("app"))
+# print('trie ->', trie.root)
 
 
 # Your Trie object will be instantiated and called as such:
