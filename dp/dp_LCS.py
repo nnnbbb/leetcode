@@ -1,4 +1,5 @@
-# https://www.bilibili.com/video/BV1ey4y1d7oD
+# [[轻松掌握动态规划]5.最长公共子序列 LCS - 邋遢大哥233] - bilibili https://www.bilibili.com/video/BV1ey4y1d7oD
+
 
 # 最长公共子序列
 '''

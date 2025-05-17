@@ -13,20 +13,21 @@
 # 算法训练营 - 12.动态规划
 # 动态规划]1143. 最长公共子序列 https://leetcode.cn/problems/longest-common-subsequence/
 
-# question 1: 为什么不用考虑同时去掉S1和S2的最后一个字符的情况
+# question 1: 最后一个字符串不相等的情况下，为什么不用考虑同时去掉S1和S2的最后一个字符的情况
+# answer 1: 这里其实没太说清楚，应该说 max(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])，但dp[i-1][j-1]一定是这三者最小的，所以可以省略
+
 '''
 字符串相等的情况
 text1[i - 1] == text2[j - 1]
-max(dp[i - 1][j],
-    dp[i][j - 1],
-    dp[i - 1][j - 1],
-    dp[i - 1][j - 1] + 1)
+max(dp[i - 1][j],  dp[i][j - 1],  dp[i - 1][j - 1],  dp[i - 1][j - 1] + 1)   
+简化
+max(dp[i - 1][j - 1] + 1)
 
 字符串不相等的情况
 text1[i - 1] != text2[j - 1]
-max(dp[i - 1][j],
-    dp[i][j - 1],
-    dp[i - 1][j - 1])
+max(dp[i - 1][j],  dp[i][j - 1],  dp[i - 1][j - 1])
+简化
+max(dp[i - 1][j], dp[i][j - 1])
 '''
 
 
