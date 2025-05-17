@@ -34,5 +34,22 @@ var generateParenthesis = function (n) {
   return result
 };
 
+var generateParenthesis = function (n) {
+  let arr = []
+  function helper(l, r, n, s) {
+    if (l == n && r == n) {
+      return arr.push(s)
+    }
+    if (l < n) {
+      helper(l + 1, r, n, s + "(")
+    }
+    if (r < l) {
+      helper(l, r + 1, n, s + ")")
+    }
+  }
+  helper(0, 0, n, "")
+  return arr
+}
+
 // @lc code=end
 

@@ -10,9 +10,9 @@
  * @return {number}
  */
 var climbStairs = function (n) {
-  let a = 1
+  let a = 0
   let b = 1
-  for (let i = 0; i < n - 1; i++) {
+  for (let i = 0; i < n; i++) {
     [a, b] = [b, a + b]
   }
   return b

@@ -4,6 +4,32 @@
 # [1143] 最长公共子序列
 #
 
+# S1: ABCBDAB
+# S2: BDCABC
+# 公共子序列，可以是不连续的
+# S1 和 S2 的公共子序列是 BCAB，有多种解，求最长的公共子序列
+#                       BDAB
+# [轻松掌握动态规划]5.最长公共子序列 LCS https://www.bilibili.com/video/BV1ey4y1d7oD
+# 算法训练营 - 12.动态规划
+# 动态规划]1143. 最长公共子序列 https://leetcode.cn/problems/longest-common-subsequence/
+
+# question 1: 为什么不用考虑同时去掉S1和S2的最后一个字符的情况
+'''
+字符串相等的情况
+text1[i - 1] == text2[j - 1]
+max(dp[i - 1][j],
+    dp[i][j - 1],
+    dp[i - 1][j - 1],
+    dp[i - 1][j - 1] + 1)
+
+字符串不相等的情况
+text1[i - 1] != text2[j - 1]
+max(dp[i - 1][j],
+    dp[i][j - 1],
+    dp[i - 1][j - 1])
+'''
+
+
 # @lc code=start
 class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
@@ -19,4 +45,6 @@ class Solution:
                 else:
                     dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
         return dp[m][n]
+
+
 # @lc code=end

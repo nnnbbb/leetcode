@@ -5,11 +5,11 @@
 #
 
 # @lc code=start
+import json
 from typing import List
 
 
 class Solution:
-    c = 0
 
     def solveSudoku(self, board: List[List[str]]) -> None:
         row = [set(range(1, 10)) for _ in range(9)]  # 行剩余可用数字
@@ -29,18 +29,17 @@ class Solution:
                     block[(i // 3 * 3) + (j // 3)].remove(val)
                 else:
                     empty.append((i, j))
-        print('empty ->', empty)
+        # print('empty ->', empty)
 
         def backtrack(iter=0):
             # 处理完empty代表找到了答案
             if iter == len(empty):
                 return True
-            self.c += 1
 
             y, x = empty[iter]
             b = (y // 3 * 3) + (x // 3)
             a = row[y] & col[x] & block[b]
-            print('a ->', f'({x}, {y})', a, row[y], col[x], block[b])
+            print('a ->', f'({x}, {y})', row[y], col[x], block[b], f'set = {a}')
             for val in a:
                 row[y].remove(val)
                 col[x].remove(val)
@@ -56,7 +55,7 @@ class Solution:
                 block[b].add(val)
             return False
         backtrack()
-        print(self.c)
+        # [print(a) for a in board]
 
 s = Solution()
 # s.solveSudoku([
